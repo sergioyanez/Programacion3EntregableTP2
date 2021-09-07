@@ -426,5 +426,39 @@ public class Tree {
 		}
 		return value;
 	}
+	
+	//--------------------------------------------------- differenceBetweenAdjacentSheets()   -----------------------------
+	public ArrayList<Integer> differenceBetweenAdjacentSheets(){
+		
+		ArrayList<Integer> array = new ArrayList<Integer>();
+				
+		return this.differenceBetweenAdjacentSheets(array);
+	}
+	//--------------------------------------------------- differenceBetweenAdjacentSheets (ArrayList<Integer> array)   -----------------------------
+	
+	
+	private ArrayList<Integer> differenceBetweenAdjacentSheets(ArrayList<Integer> array) {// paso por parámetros un arreglo de hojas
+		ArrayList<Integer> diferenceList = new ArrayList<Integer>();
+		ArrayList<Integer> arraySheet = array;
+		
+		if (this.isEmpty()) {
+			return diferenceList;
+		} else {
+			if (this.isSheet()) {
+				arraySheet.add(0, this.value);
+				if (arraySheet.size() >= 2) {
+					diferenceList.add(arraySheet.get(1) - arraySheet.get(0));
+				}
+			}
+
+			if (this.right != null)
+				diferenceList.addAll(this.right.differenceBetweenAdjacentSheets(arraySheet));
+
+			if (this.left != null)
+				diferenceList.addAll(this.left.differenceBetweenAdjacentSheets(arraySheet));
+		}
+		
+		return diferenceList;
+	}
 
 }

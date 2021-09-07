@@ -39,12 +39,14 @@ public class main_entregableTP2 {
 		miArbol.delete(10);
 		miArbol.add(55);
 
-		miArbol.printPreOrder();
+		System.out.println(miArbol.printPreOrder());
 		System.out.println( miArbol.getMaxElem() );
 		System.out.println( miArbol.getHeight() );
 		System.out.println( miArbol.getLongestBranch() );
 		System.out.println( miArbol.getElementAtLevel(2) );
 		System.out.println( miArbol.getFrontera() );
+		System.out.print("Diferencia entre hojas adyacentes de derecha a izquierda: ");
+		System.out.println(miArbol.differenceBetweenAdjacentSheets());
 	}
 				
 
