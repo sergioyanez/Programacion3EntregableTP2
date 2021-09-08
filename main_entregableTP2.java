@@ -16,6 +16,7 @@ public class main_entregableTP2 {
 		Tree miArbol = new Tree(valoresIniciales);
 
 		System.out.println(miArbol.printPreOrder());
+		System.out.println(miArbol.printInOrder());
 		System.out.println( miArbol.getMaxElem() );
 		System.out.println( miArbol.getHeight() );
 		System.out.println( miArbol.getLongestBranch() );
@@ -28,6 +29,7 @@ public class main_entregableTP2 {
 		miArbol.delete(25);
 
 		System.out.println(miArbol.printPreOrder());
+		System.out.println(miArbol.printInOrder());
 		System.out.println( miArbol.getMaxElem() );
 		System.out.println( miArbol.getHeight() );
 		System.out.println( miArbol.getLongestBranch() );
@@ -40,6 +42,7 @@ public class main_entregableTP2 {
 		miArbol.add(55);
 
 		System.out.println(miArbol.printPreOrder());
+		System.out.println(miArbol.printInOrder());
 		System.out.println( miArbol.getMaxElem() );
 		System.out.println( miArbol.getHeight() );
 		System.out.println( miArbol.getLongestBranch() );

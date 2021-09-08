@@ -11,22 +11,20 @@ public class Tree {
 //--------------------------------   Tree(Integer value)   --------------------------------------
 	//CONSTRUCTOR
 /* Carga los valores ingresados ,individualmente, a un árbol binario de búsqueda */
-	//Complejidad O(h).Siempre los va ingresando en nivel más alto del árbol.
+//Complejidad O(h), siendo h la altura del àrbol. En el peor de los casos va a ingresar el valor en el nivel más alto del árbol.
+	
 	public Tree(Integer value) {
 		this.value = value;
 		this.left = null;
 		this.right = null;
 	}
+	
 //------------------------------   Tree(Integer[] arreglo)   --------------------------------------------
 	// CONSTRUCTOR
 /*Carga los valores dados de un array a un árbol binario de búsqueda.*/
 	
-	//Complejidad: O(n*h)  con h <= n, donde n es el tamaño del arreglo
-	//(equivalente a la cantidad de nodos que integraran el árbol,
-	//y h es la altura del árbol. En el peor caso, por cada elemento a insertar del
-	//array debe colocarlo como último nodo en la rama de mayor longitud,
-	//es decir h pasos hasta llegar al lugar. Este proceso lo repite n veces,
-	//por cada elemento a agregar.
+	//Complejidad: O(n*h)  siendo n el tamaño del arreglo y h la altura del árbol
+	// Para cada elemento del arreglo, en el peor de los casos tiene que recorrer hasta la altura máxima del arbol para insertarlo
 
 	public Tree(Integer[] arreglo) {
 		this.left = null;
@@ -38,13 +36,10 @@ public class Tree {
 
 //---------------------------------   add(Integer newValue)   -------------------------------------------------
 
-	/*Inserta un elemento en el arbol de búsqueda binario, colocando los elementos menores
-	 a su izquierda y los mayores a la derecha. Recorre los nodos verificando si el valor
-	 dado es menor o mayor al actual; según cual sea el lugar (como hijo) correspondiente,
-	 si está ocupado repite el procedimiento desde este nodo (hijo), y sino lo inserta.*/
+	/*Inserta un nuevo árbol en el árbol de búsqueda binario.*/
 	
-	//Complejidad: O(h) donde h es la altura del arbol (la longitud de la rama mas larga)
-	//En el peor caso tiene que llegar al nodo de la rama mÃ¡s larga.
+	//Complejidad: O(h) donde h es la altura del árbol de búsqueda binario (la longitud de la rama mas larga)
+	//En el peor caso tiene que llegar al nodo de la rama más larga.
 	
 	public void add(Integer newValue) {
 		if (this.value == null)
@@ -67,7 +62,7 @@ public class Tree {
 	
 //--------------------------------------   getRoot()   -------------------------------------------
 	
-	// Retorna la raíz del árbol ( el elemento que se encuentra en el nivel cero (0) )
+	// Retorna la raíz del árbol en el que se està posicionado.
 	// Complejidad O(1)
 	
 	public Integer getRoot() {
@@ -103,8 +98,8 @@ public class Tree {
 	
 /*Imprime los elementos en siguiente Órden: primero el padre  y luego el/los hijos ( hijo-izquierdo hijo-derecho). */
 	
-	// Complejidad: O(n) donde n es la cantidad de nodos del arbol
-	//En el peor y mejor caso tiene que recorrer todos los nodos para proyectarlos.
+	// Complejidad: O(n) donde n es la cantidad de árboles.
+		//Tiene que recorrer todo el árbol para imprimirlo.
 	
 	public String printPreOrder() {
 		String exit = "";
@@ -131,8 +126,9 @@ public class Tree {
 	
 	/*Imprime los elementos en siguiente Órden: primero el/los hijos ( hijo izquierdo hijo derecho )  y luego el padre. */
 	
-	// Complejidad: O(n) donde n es la cantidad de nodos del arbol
-	//En el peor y mejor caso tiene que recorrer todos los nodos para proyectarlos.
+	// Complejidad: O(n) donde n es la cantidad de árboles.
+	//Tiene que recorrer todo el árbol para imprimirlo.
+	
 	
 	
 	public String printPosOrder() {
@@ -157,10 +153,10 @@ public class Tree {
 	
 	//----------------------------------------   printInOrder ()   ------------------------------------------------------
 	
-/*Imprime los elementos en Órden, de menor a mayor */
+/*Imprime los elementos en Órden, de menor a mayor , (hijo izquierdo, raíz, hijo derecho) .*/
 	
-	// Complejidad: O(n) donde n es la cantidad de nodos del arbol
-	//En el peor y mejor caso tiene que recorrer todos los nodos para proyectarlos.
+	// Complejidad: O(n) donde n es la cantidad de árboles.
+		//Tiene que recorrer todo el árbol para imprimirlo.
 
 	public String printInOrder() {
 		String exit = "";
@@ -183,7 +179,7 @@ public class Tree {
 
 //---------------------------------  isEmpty()   ---------------------------------	
 	
-		/*Retorna si el árbol posee al menos un nodo (la raiz) o está vacío */
+		/*Retorna false si el árbol posee al menos un nodo (la raiz), o true si el árbol está vacío */
 		
 		//Complejidad: O(1)
 	
@@ -195,8 +191,8 @@ public class Tree {
 	
 	/*Retorna la altura del arbol, es decir, la cantidad de arcos que tiene la rama más larga.*/
 	
-	// Complejidad: O(n) donde n es la cantidad de nodos del arbol
-	//En el peor y mejor caso tiene que recorrer todos los nodos para saber cuál es la altura.
+	// Complejidad: O(n) donde n es la cantidad de  arboles.
+	//En el peor de los casos tiene que recorrer todo el árbol para saber cuál es la altura.
 	
 	public int getHeight() {
 		int height = 0;
@@ -230,6 +226,7 @@ public class Tree {
 	/* Retorna el elemento de mayor valor que hay en el árbol */
 	
 	//Complejidad: O(h) donde h es la altura del arbol (la longitud de la rama mas larga)
+	// En el peor de los casos debe recorrer la rama más larga.
 
 	public Integer getMaxElem() {
 		Integer maxValue = null;
@@ -248,8 +245,8 @@ public class Tree {
 	
 	/*Devuelve una lista con los elementos de la rama mas larga.*/
 	
-	//Complejidad: O(n) donde n es la cantidad de nodos del árbol
-	//Debe recorrer todo el árbol para saber cuál es la rama mas larga.
+	//Complejidad: O(n) donde n es la cantidad de  árboles que contiene el ABB.
+	//Tiene que recorrer todo el ABB.
 	
 	public ArrayList<Integer> getLongestBranch() {
 		ArrayList<Integer> longestBranch = new ArrayList<Integer>();
@@ -278,27 +275,24 @@ public class Tree {
 	
 //--------------------------------------   getFrontera()   ----------------------------------------------------------
 	
-	/*Retorna una lista con todos los valores de los nodo hoja */
+	/*Retorna una lista con todos los valores de los árboles que no tienen hijos ( son hoja )*/
 
-	//Complejidad: O(n) donde n es la cantidad de nodos del árbol
-	//En el peor de los casos y mejor de los casos, debe retornar todas las hojas; debe recorrer todo el Árbol.
+	//Complejidad: O(n) donde n es la cantidad de árboles.
+	// Tiene que recorrer todo el ABB.
 	
 	public ArrayList<Integer> getFrontera() {
 		ArrayList<Integer> borderList = new ArrayList<Integer>();
-		ArrayList<Integer> borderListLeft = new ArrayList<Integer>();
-		ArrayList<Integer> borderListRight = new ArrayList<Integer>();
+	
 		if (this.isEmpty()) {
 			return borderList;
 		} else {
 			if (this.left == null && this.right == null)
 				borderList.add(this.value);
 			if (this.left != null)
-				borderListLeft = this.left.getFrontera();
+				borderList.addAll(this.left.getFrontera());
 			if (this.right != null)
-				borderListRight = this.right.getFrontera();
-		}
-		borderList.addAll(borderListLeft);
-		borderList.addAll(borderListRight);
+				borderList.addAll(this.right.getFrontera());
+		}		
 		return borderList;
 	}
 
@@ -306,15 +300,11 @@ public class Tree {
 	
 	/* Retorna los valores de todos los nodos que pertenecen a un nivel determinado que se ingresa por parámetro*/
 	
-	//Complejidad: O(n) donde n es la cantidad de nodos
-	//En el peor caso debe ir al último nivel del árbol, 
-	//deberá imprimir todas las hojas, lo que implica recorrerlo completamente.
+	//Complejidad: O(n) donde n es la cantidad de árboles que tiene el ABB.
+	//En el peor caso debe recorrer todo el ABB. 	
 	
 	public ArrayList<Integer> getElementAtLevel(int level) {
-
-		ArrayList<Integer> levelList = new ArrayList<Integer>();
-		ArrayList<Integer> levelListLeft = new ArrayList<Integer>();
-		ArrayList<Integer> levelListRight = new ArrayList<Integer>();
+		ArrayList<Integer> levelList = new ArrayList<Integer>();	
 
 		if (this.isEmpty()) {
 			return levelList;
@@ -322,32 +312,32 @@ public class Tree {
 			if (level == 0)
 				levelList.add(this.value);
 			if (this.left != null)
-				levelListLeft = this.left.getElementAtLevel(level - 1);
+				levelList.addAll(this.left.getElementAtLevel(level - 1));
 			if (this.right != null) {
-				levelListRight = this.right.getElementAtLevel(level - 1);
-			}
-			levelList.addAll(levelListLeft);
-			levelList.addAll(levelListRight);
+				levelList.addAll(this.right.getElementAtLevel(level - 1));
+			}			
 			return levelList;
 		}
 	}
-
-	// Retorna si un nodo es Hoja o no
+//-------------------------------------------------------  isSheet()   -----------------------------------------------
+	
+  	// Retorna si un nodo es hoja o no, retorna falso si tiene algun hijo y true si no tiene hijos
 	// Complejidad O (1)
+	
 	public boolean isSheet() {
 		return (this.left == null && this.right == null);
 	}
 
 	//--------------------------------------- delete ( Integer value )   ----------------------------------
 
-	/* Retorna si pudo eliminar un elemento del árbol o no: recorre los nodos del árbol,
-	  por izquierda o derecha dependiendo si el valor buscado es menor o mayor al del nodo
-	  actual. Si coinciden los valores, se procede a eliminar según cuál sea el caso:
+	/* Retorna si pudo eliminar un elemento del árbol o no: recorre el ABB,
+	  por izquierda o derecha dependiendo si el valor buscado es menor o mayor a la raiz del árbol en que está posicionado.
+	  Si coinciden los valores, se procede a eliminar según cuál sea el caso:
 	  si el nodo es hoja, si tiene un hijo, o si el nodo tiene 2 hijos, y a su vez considera
 	  el caso de ser la raíz*/
 	
 	//Complejidad:  O(h) donde h es la altura del árbol (la rama más larga)
-	//En el peor caso tiene que ir al último nodo de la rama más larga.
+	//En el peor caso tiene que ir al último arbol de la rama más larga.
 	public boolean delete(Integer value) {
 		boolean delete = false;
 		Integer tmp = null;
@@ -392,7 +382,8 @@ public class Tree {
 				if (this.isSheet()) {
 					this.value = null;
 				} else {
-					if (this.left != null) {// borra el elemento raíz si no tiene hijos, o tiene hijo a izquierda
+					if (this.left != null) {// borra el elemento raíz si no tiene hijos, o tiene hijo a izquierda,
+											//esto es porque utilizo el método buscar el nodo más a la derecha del sub-árbol izquierdo.
 						tmp2 = this.left.search_Rightmost_Node_In_Left_SubTree();
 						this.delete(tmp2);
 						this.value = tmp2;
@@ -411,7 +402,7 @@ public class Tree {
 
 	//---------------------------------   search_Rightmost_Node_In_Left_SubTree()   -------------------------------------------
 	
-	/* busca el nodo más a la derecha del sub Árbol izquierdo */
+	/* busca el árbol más a la derecha del sub árbol izquierdo */
 	
 	//Complegidad O(h) en el peor de los casos tiene que ir hasta el Último nodo de la rama más larga
 	
@@ -431,8 +422,8 @@ public class Tree {
 	
 	/*Retorna una lista con la diferencia entre los valores de dos nodos hoja adyacentes */
 
-	//Complejidad: O(n) donde n es la cantidad de nodos del Ã¡rbol
-	//En el peor de los casos y mejor de los casos, debe recorrer todas las hojas; debe recorrer todo el Árbol.
+	//Complejidad: O(n) donde n es la cantidad de árboles
+	// Tiene que recorrer todo el ABB para buscar sus hojas
 	
 	public ArrayList<Integer> differenceBetweenAdjacentSheets(){
 		
@@ -442,6 +433,10 @@ public class Tree {
 	}
 	//--------------------------------------------------- differenceBetweenAdjacentSheets (ArrayList<Integer> array)   -----------------------------
 	
+	/*Retorna una lista con la diferencia entre los valores de dos nodos hoja adyacentes */
+
+	//Complejidad: O(n) donde n es la cantidad de árboles
+	// Tiene que recorrer todo el ABB para buscar sus hojas
 	
 	private ArrayList<Integer> differenceBetweenAdjacentSheets(ArrayList<Integer> array) {// paso por parámetros un arreglo de hojas
 		ArrayList<Integer> diferenceList = new ArrayList<Integer>();
