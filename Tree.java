@@ -11,7 +11,7 @@ public class Tree {
 //--------------------------------   Tree(Integer value)   --------------------------------------
 	//CONSTRUCTOR
 /* Carga los valores ingresados ,individualmente, a un árbol binario de búsqueda */
-//Complejidad O(h), siendo h la altura del àrbol. En el peor de los casos va a ingresar el valor en el nivel más alto del árbol.
+//Complejidad O(1), en ese momento el árbol siempre tiene altura 0.
 	
 	public Tree(Integer value) {
 		this.value = value;
@@ -387,10 +387,18 @@ public class Tree {
 						tmp2 = this.left.search_Rightmost_Node_In_Left_SubTree();
 						this.delete(tmp2);
 						this.value = tmp2;
-					} else if (this.left == null) {// borra el elemento raíz si tiene hijo a derecha
-						tmp2 = this.right.left.search_Rightmost_Node_In_Left_SubTree();
-						this.delete(tmp2);
-						this.value = tmp2;
+					} else if (this.left == null) {// borra el elemento raíz si tiene sub arbol hijo a derecha
+						if(this.right.left ==null) {
+							tmp2 = this.right.value;
+							this.delete(tmp2);
+							this.value= tmp2;
+							
+						}else {
+							tmp2 = this.right.left.search_Rightmost_Node_In_Left_SubTree();
+							this.delete(tmp2);
+							this.value = tmp2;
+						}
+						
 					}
 				}
 			}
